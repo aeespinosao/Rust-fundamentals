@@ -102,6 +102,68 @@ fn structs() {
     let point = Point(1,2,3);
 }
 
+fn enums() {
+    enum UserRoles {
+        BASIC,
+        ADMIN,
+    }
+
+    let role = UserRoles::ADMIN;
+
+    enum Website {
+        URL(String),
+        INSTAGRAM(String),
+        LINKEDIN(String)
+    }
+
+    let web = Website::INSTAGRAM(String::from("https://ig.com"));
+
+    enum Option<T> {
+        Some(T),
+        None
+    }
+
+    let nombre: Option<String> = None;
+    nombre = Some("Andres".toString());
+}
+
+fn traits() {
+    struct Humano;
+    struct Gato;
+
+    trait Hablar {
+        fn hablar(&self) -> String;
+    }
+
+    impl Hablar for Humano {
+        fn hablar(&self) -> String {
+            "Hola".to_string()
+        }
+    }
+
+    impl Hablar for Gato {
+        fn hablar(&self) -> String {
+            "MIAU".to_string()
+        }
+    }
+}
+
+fn iterator() {
+    let s = [1,2,3];
+
+    for x in s.iter() {
+        println!("{}", x+1);
+    }
+}
+
+fn closures() {
+    let sum = |n1,n2| {
+        n1+n2;
+    }
+
+    println!("{}", sum(1,2));
+}
+
 fn main(){
     variables();
     typing();
