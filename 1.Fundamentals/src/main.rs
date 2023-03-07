@@ -164,6 +164,52 @@ fn closures() {
     println!("{}", sum(1,2));
 }
 
+fn loops() {
+    let mut counter = 0;
+    let result = loop {
+        if counter == 10 {
+            break counter;
+        }
+
+        counter += 1;
+    }
+    println!("{}", result);
+
+    while counter>0 {
+        println!("{}", counter);
+        counter -= 1;
+    }
+    
+    let arreglo = [0,1,2,3,4];
+    
+    for element in arreglo.iter() {
+        println!("{}", element);
+    }
+}
+
+fn if_let() {
+    let edad: Option<i32> = Some(20);
+
+    if let Some(value) = edad {
+        println!("{}", value);
+    } else {
+        println!("No valido");
+
+    }
+
+    let mut mensajes = Some(100);
+
+    while let  Some(value) = mensajes {
+        if value > 0 {
+            println!("{} no leidos", value);
+            mensajes = Some(value-1);
+        } else {
+            println!("No hay mensajes");
+            mensajes = None;
+        }
+    }
+}
+
 fn main(){
     variables();
     typing();
